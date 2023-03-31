@@ -22,63 +22,39 @@ app.get('/', (req, resp) => {
 
 app.get('/popular', async (req, resp) => {
   const POPULAR_URL = `https://api.themoviedb.org/3/movie/popular?api_key=${apikey}&language=en-US&page=1`;
-  try {
-    const data = await fetchData(POPULAR_URL);
-    resp.status(200).json(data);
-  } catch (err) {
-    console.log(err);
-  }
+  await fetchData(POPULAR_URL, resp);
 });
 
 app.get('/trending', async (req, resp) => {
   const TRENDING_URL = `https://api.themoviedb.org/3/trending/all/day?api_key=${apikey}`;
-  try {
-    const data = await fetchData(TRENDING_URL);
-    resp.status(200).json(data);
-  } catch (err) {
-    console.log(err);
-  }
+  await fetchData(TRENDING_URL, resp);
 });
 
 app.get('/toprated', async (req, resp) => {
   const TOP_RATED_URL = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apikey}&language=en-US&page=1`;
-  try {
-    const data = await fetchData(TOP_RATED_URL);
-    resp.status(200).json(data);
-  } catch (err) {
-    console.log(err);
-  }
+  await fetchData(TOP_RATED_URL, resp);
 });
 
 app.get('/searched', async (req, resp) => {
   const movie = req.query.movie;
   const SEARCHED_URL = `https://api.themoviedb.org/3/search/movie?api_key=${apikey}&language=en-US&query=${movie}&page=1&include_adult=false`;
-  try {
-    const data = await fetchData(SEARCHED_URL);
-    resp.status(200).json(data);
-  } catch (err) {
-    console.log(err);
-  }
+  await fetchData(SEARCHED_URL, resp);
 });
 
 app.get('/banner', async (req, resp) => {
   const id = req.query.id;
   const MOVIE_BANNER_URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${apikey}&language=en-US`;
-  try {
-    const data = await fetchData(MOVIE_BANNER_URL);
-    resp.status(200).json(data);
-  } catch (err) {
-    console.log(err);
-  }
+  await fetchData(MOVIE_BANNER_URL, resp);
 });
 
-const fetchData = async (url) => {
-  console.log('fetching');
-  const promise = await fetch(url);
-  console.log(promise);
-  const data = await promise.json();
-  console.log(data);
-  return data;
+const fetchData = async (url, response) => {
+  try {
+    const promise = await fetch(url);
+    const data = await promise.json();
+    response.status(200).json(data);
+  } catch (e) {
+    response.status(404).send(e);
+  }
 };
 
 app.listen(port, () =>
