@@ -10,6 +10,9 @@
   },
   "keywords": [],
   "author": "",
+  "engines": {
+    "node": "15.16.0"
+  },
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
