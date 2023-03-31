@@ -1,5 +1,6 @@
 const { port, apikey } = require('./config.js');
 const fetch = require('node-fetch');
+const cors = require('cors');
 const express = require('express');
 const app = express();
 
@@ -10,7 +11,8 @@ app.use(
   })
 );
 
-//fetch movie banner and details
+app.use(cors());
+app.options('*', cors());
 
 app.get('/', (req, resp) => {
   resp
