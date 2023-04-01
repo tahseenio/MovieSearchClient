@@ -1,5 +1,5 @@
 # MovieSearchServer
-MovieSearchServer - https://movie-search-server-7duvyuyld-tahseenio.vercel.app/
+MovieSearchServer - https://movie-search-server.vercel.app/
 
 ### Fetch Popular Movies route
 ```js
