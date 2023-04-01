@@ -1,5 +1,5 @@
 # MovieSearchServer
-MovieSearchServer - https://still-depths-10330.herokuapp.com
+MovieSearchServer - https://movie-search-server.vercel.app/
 
 ### Fetch Popular Movies route
 ```js
