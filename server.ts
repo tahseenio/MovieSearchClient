@@ -1,4 +1,4 @@
-import { port, apikey } from './config.ts';
+import { port, apikey } from './config.js';
 import fetch from 'node-fetch';
 import cors from 'cors';
 import express, { Express, Request, Response } from 'express';
