@@ -2,7 +2,7 @@ import { port, apikey } from './config.ts';
 import fetch from 'node-fetch';
 import cors from 'cors';
 import express, { Express, Request, Response } from 'express';
-const app: Express = express();
+export const app: Express = express();
 
 app.use(express.json());
 app.use(
