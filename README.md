@@ -1,5 +1,5 @@
 # MovieSearchServer
-MovieSearchServer - https://movie-search-server.vercel.app/
+- Movie Search backend for https://github.com/tahseenio/movie-search-react
 
 ### Fetch Popular Movies route
 ```js
