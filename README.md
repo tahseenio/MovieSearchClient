@@ -23,10 +23,10 @@
 
 ### Search for a movie route
 ```js
-/searched?movie=MOVIENAME
+/searched?movie={MOVIENAME}
 ```
 
 ### Search for a movie banner
 ```js
-/banner?id=MOVIEID
+/banner?id={MOVIEID}
 ```
